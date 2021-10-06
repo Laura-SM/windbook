@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose';
+const mongoose = require('mongoose');
 
-const sessionSchema = new Schema({
+const sessionSchema = new mongoose.Schema({
   spot: String,
   date: Date,
   board: { brand: String, name: String, volume: Number },
@@ -10,4 +10,4 @@ const sessionSchema = new Schema({
   photos: [String],
 });
 
-export default model('Session', sessionSchema);
+module.exports = mongoose.model('Session', sessionSchema);
