@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose';
-import session from './session.model';
+const mongoose = require('mongoose');
+const session = require('./session.model');
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   name: String,
@@ -16,4 +16,4 @@ userSchema.methods.isValidPassword = function isValidPassword(password) {
   return password === this.password;
 };
 
-export default model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
